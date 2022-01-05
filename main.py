@@ -48,12 +48,19 @@ while encore:
     print(f"Félicitations, vous avez inscrit", (prenom),(nom), "il jouera dans la catégorie",(fonctions.category(birth)))
     print("Sa nouvelle adresse mail est :",(email),)
 
-    again = input("Voulez-vous enregister un(e) autre joueur(euse)? o/n?")
-    if again == "n":
-        encore = False
-    elif again == "o":
-        encore = True
-
+    continuer = True
+    while continuer:
+            again = input("Voulez-vous enregister un(e) autre joueur(euse)? o/n?")
+            if again == "n":
+                encore = False
+                continuer = False
+            elif again == "o":
+                encore = True
+                continuer = False
+            else:
+                print("Saisie non reconnue")
+                encore = False
+                continuer = True
 print("Vous avez terminé vos enregistrements, appuyez sur Alt+F4")
 
 
