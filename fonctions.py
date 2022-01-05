@@ -3,7 +3,7 @@ def initiale(prenom):
     return i[0]
 
 def mail(prenom,nom):
-    adresse = initiale(prenom),".",nom,"@baton-rouge.fr"
+    adresse = initiale(prenom)+"."+nom+"@baton-rouge.fr"
     return adresse
 
 def category(birth):
