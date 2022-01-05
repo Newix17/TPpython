@@ -1,16 +1,24 @@
-#Rédaction des fonctions :
+def initiale(prenom):
+    i = prenom
+    return i[0]
 
-#_____________________________________________________________
-#Insertion du nom, prénom, et année de naissance
-def inser(n,pn,y):
-    n, pn, y = input("indiquez le Nom, Prénom et année de naissance, séparés par un espace\n").split(" ")
-    y = int(y)
+def mail(prenom,nom):
+    adresse = initiale(prenom),".",nom,"@baton-rouge.fr"
+    return adresse
 
-#_____________________________________________________________
-# Génération des adresses Mails :
-# Premiere lettre du Prénon suivie d'un point et du nom complet
-# Vient l'arobase et baton-rouge.fr
-
-#_____________________________________________________________
-#Attribution des catégories
-#définies par l'âge, lui-même défini par l'année de naissance.
+def category(birth):
+    cat = 0
+    age = 2022 - birth
+    if age < 6 or age > 40:
+        cat = "Non admis"
+    elif age >= 6 and age < 12:
+        cat = "Poussin"
+    elif age >= 12 and age < 18:
+        cat = "Cadet"
+    elif age >= 18 and age < 24:
+        cat = "Junior"
+    elif age >= 24 and age < 30:
+        cat = "Semi-Pro"
+    elif age >= 30 and age < 40:
+        cat = "Pro"
+    return cat
