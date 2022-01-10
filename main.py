@@ -1,7 +1,7 @@
 import datetime
 import fonctions
 import files
-liste=[]
+
 poussin=[]
 cadet=[]
 junior=[]
@@ -11,7 +11,7 @@ print("Bonjour, Bienvenue dans l'assistant d'inscription au Club de Quidditch v1
 
 encore = True
 while encore:
-
+    liste = []
     nom = input("Veuillez saisir le NOM du joueur:\n")
     prenom = input("Et son PRENOM:\n")
 
