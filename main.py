@@ -1,3 +1,4 @@
+import datetime
 import fonctions
 import files
 liste=[]
@@ -17,13 +18,20 @@ while encore:
     continuer = True
     while continuer:
         birth = input("Pour finir la saisie, merci d'entrer son année de naissance:\n")
+        result = fonctions.check_year(birth)
+        if result:
+            continuer = False
+        else:
+            continuer = True
+
         try:
             birth = int(birth)
         except ValueError:
             print("Merci d'indiquer l'année en chiffres")
-        except:
-            if birth > 2022 or birth < 1922:
-                print("Saisie non valide")
+
+        if birth > 2022 or birth < 1922:
+            print("Saisie non valide")
+            continuer = True
         else:
             continuer = False
 
@@ -49,6 +57,13 @@ while encore:
     print(f"Félicitations, vous avez inscrit", (prenom),(nom), "il jouera dans la catégorie",(fonctions.category(birth)))
     print("Sa nouvelle adresse mail est :",(email),)
 
+    date_enregistrement = files.date()
+
+    nom_fichier = "inscrits-"+str(date_enregistrement)+".csv"
+
+    files.add_ligne(nom_fichier, liste)
+
+
     continuer = True
     while continuer:
             again = input("Voulez-vous enregister un(e) autre joueur(euse)? o/n?")
@@ -62,6 +77,10 @@ while encore:
                 print("Saisie non reconnue")
                 encore = False
                 continuer = True
-print("Vous avez terminé vos enregistrements, appuyez sur Alt+F4")
+print("Vous avez terminé vos enregistrements")
+
+
+
+
 
 

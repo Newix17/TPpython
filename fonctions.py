@@ -22,3 +22,9 @@ def category(birth):
     elif age >= 30 and age < 40:
         cat = "Pro"
     return cat
+
+def check_year(birth):
+    if len(str(birth)) == 4:
+        return True
+    else:
+        return False
