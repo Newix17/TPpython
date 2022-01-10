@@ -6,9 +6,9 @@ def date():
     return date_enregistrement
 
 def add_ligne(nom_fichier, liste_info):
-    with open(nom_fichier, "a") as fichier:
+    with open(nom_fichier, "a", newline='') as fichier:
         for i in liste_info:
             csv.writer(fichier, str(i), delimiter=',')
-        fichier.write("\11n")
+        fichier.write("\n")
 
 
