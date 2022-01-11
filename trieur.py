@@ -1,15 +1,7 @@
 import os
 import csv
 import re
-
-# chercher les fichiers commencant par "inscrits" OK
-# ouvrir le 1er
-#   copier chaque ligne
-#   ouvrir le inscrits_total et copier dedans
-# ouvrir le second
-#   copier chaque ligne
-#   ouvrir le inscrits_total et copier dedans
-# etc
+input("Pressez une touche pour créer un fichier regroupant toutes les inscriptions\n")
 
 liste_fichiers = []
 
@@ -26,13 +18,23 @@ for i in dossier:
 
 print(liste_fichiers)
 
+new = open("inscrits_total.csv", "a")
+
 for i in (liste_fichiers):
-  with open(liste_fichiers[0], "r") as temp:
-    new = open("inscrits_total.csv", "a")
-    new.write(temp.readline())
+  temp = open(i, "r")
+  for line in temp:
+    new.write(line)
+temp.close()
+new.close()
+
+input("Le fichier \"inscrits_total\" a bien été crée\nPressez une touche pour lancer la recherche et la suppression des doublons\n")
 
 
-print(new)
+
+
+
+
+
 
 
 
