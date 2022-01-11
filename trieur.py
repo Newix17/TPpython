@@ -1,46 +1,35 @@
 import os
 import csv
-test = "boloss"
-print(test[:3])
+import re
 
-# def add_ligne(nom_fichier, liste_info):
-#     if not nom_fichier in os.listdir("."):
-#         entete = True
-#     else:
-#         entete = False
-#     with open(nom_fichier, "a") as fichier:
-#         ligne = csv.writer(fichier, delimiter=',')
-#         if entete == True:
-#             header = ["Prenom", "Nom", "Catégorie", "Adresse Mail"]
-#             ligne.writerow(header)
-#         ligne.writerow([liste_info[0],liste_info[1], liste_info[3], liste_info[4]
+# chercher les fichiers commencant par "inscrits" OK
+# ouvrir le 1er
+#   copier chaque ligne
+#   ouvrir le inscrits_total et copier dedans
+# ouvrir le second
+#   copier chaque ligne
+#   ouvrir le inscrits_total et copier dedans
+# etc
 
-# target = os.listdir().count("inscrits")
-# print(target)
-#
-# t=0
-# for _ in os.listdir():
-#     if "inscrits" in os.listdir():
-#         t += 1
-# print(t)
+liste_fichiers = []
 
-nbr=0
-# target = os.listdir()
-for i in os.listdir():
-  if "inscrits" in i:
-    nbr += 1
+with open("inscrits_total.csv", "x") as f:
+  ligne = csv.writer(f, delimiter=',')
+  header = ["Prenom", "Nom", "Catégorie", "Adresse Mail"]
+  ligne.writerow(header)
 
-print(nbr)
 
-doublon = 0
-for i in range(nbr):
-    f[i] = open("inscrits", "r")
-    lecture = f[i].readlines()
-    for _ in lecture:
-        f[i+1] = open("inscrits", "r")
-        lecture2 = f[i+1].readlines()
-        if lecture == lecture2:
-            doublon += 1
-print(doublon)
+dossier = os.listdir(".")
+for i in dossier:
+  if re.match("inscrits-20", i):
+    liste_fichiers.append(i)
+
+print(liste_fichiers)
+
+
+
+
+
+
 
 
