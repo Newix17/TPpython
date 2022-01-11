@@ -10,13 +10,10 @@ with open("inscrits_total.csv", "x") as new:
   header = ["Prenom", "Nom", "Catégorie", "Adresse Mail"]
   ligne.writerow(header)
 
-
 dossier = os.listdir(".")
 for i in dossier:
   if re.match("inscrits-20", i):
     liste_fichiers.append(i)
-
-print(liste_fichiers)
 
 new = open("inscrits_total.csv", "a")
 
@@ -29,20 +26,5 @@ new.close()
 
 input("Le fichier \"inscrits_total\" a bien été crée\nPressez une touche pour lancer la recherche et la suppression des doublons\n")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for i in new:
+  
