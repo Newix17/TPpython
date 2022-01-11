@@ -13,8 +13,8 @@ import re
 
 liste_fichiers = []
 
-with open("inscrits_total.csv", "x") as f:
-  ligne = csv.writer(f, delimiter=',')
+with open("inscrits_total.csv", "x") as new:
+  ligne = csv.writer(new, delimiter=',')
   header = ["Prenom", "Nom", "Catégorie", "Adresse Mail"]
   ligne.writerow(header)
 
@@ -25,6 +25,17 @@ for i in dossier:
     liste_fichiers.append(i)
 
 print(liste_fichiers)
+
+for i in (liste_fichiers):
+  with open(liste_fichiers[0], "r") as temp:
+    new = open("inscrits_total.csv", "a")
+    new.write(temp.readline())
+
+
+print(new)
+
+
+
 
 
 
