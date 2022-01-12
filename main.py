@@ -2,6 +2,7 @@ import datetime
 import fonctions
 import files
 
+non_admis=[]
 poussin=[]
 cadet=[]
 junior=[]
