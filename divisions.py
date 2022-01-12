@@ -14,7 +14,6 @@ with open("inscrits_total_v2.csv", "r") as f:
     for line in f:
 
         ligne = [x for x in line[:-2].split(",")]
-
         if "Poussin" in ligne[2]:
             poussin.append(ligne[0])
             poussin.append(ligne[1])
@@ -30,9 +29,11 @@ with open("inscrits_total_v2.csv", "r") as f:
         if "Pro" in ligne[2]:
             pro.append(ligne[0])
             pro.append(ligne[1])
+        if "Non admis" in ligne[2]:
+            non_admis.append(ligne[0])
+            non_admis.append(ligne[1])
         else:
-            non_admis.append(ligne[0])
-            non_admis.append(ligne[0])
+            pass
 
 print("Poussin:",(poussin),"\n","Cadet:",(cadet),"\n","Junior:",(junior),"\n","Semi-Pro:",(semipro),"\n","Pro:",(pro),"\n","Non Admis:",(non_admis),"\n",sep="")
 

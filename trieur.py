@@ -5,7 +5,7 @@ input("Pressez une touche pour créer un fichier regroupant toutes les inscripti
 
 liste_fichiers = []
 
-with open("inscrits_total.csv", "x") as new:
+with open("inscrits_total.csv", "x", newline='') as new:
   ligne = csv.writer(new, delimiter=',')
   header = ["Prenom", "Nom", "Catégorie", "Adresse Mail"]
   ligne.writerow(header)
@@ -29,7 +29,7 @@ input("Le fichier \"inscrits_total\" a bien été crée\nPressez une touche pour
 with open('inscrits_total.csv', 'r') as in_file, open('inscrits_total_v2.csv', 'w') as out_file:
   seen = set()
   for line in in_file:
-    if line in seen: continue
+    if line in seen or line=="\n": continue
 
     seen.add(line)
     out_file.write(line)
