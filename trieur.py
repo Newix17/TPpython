@@ -26,5 +26,14 @@ new.close()
 
 input("Le fichier \"inscrits_total\" a bien été crée\nPressez une touche pour lancer la recherche et la suppression des doublons\n")
 
-for i in new:
-  
+with open('inscrits_total.csv', 'r') as in_file, open('inscrits_total_v2.csv', 'w') as out_file:
+  seen = set()
+  for line in in_file:
+    if line in seen: continue
+
+    seen.add(line)
+    out_file.write(line)
+
+input("Doublons supprimés, une copie du fichier originale à été conservé.\nVous pouvez quitter cet utilitaire")
+
+
