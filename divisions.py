@@ -9,21 +9,30 @@ junior=[]
 semipro=[]
 pro=[]
 
+
 with open("inscrits_total_v2.csv", "r") as f:
     for line in f:
-        print(line)
-        # if re.match("Poussin", line):
-        #     poussin.append(line[1])
-        # if re.match("Cadet", line):
-        #     cadet.append(line[1])
-        # if re.match("Junior", line):
-        #     junior.append(line[1])
-        # if re.match("Semi-Pro", line):
-        #     semipro.append(line[1])
-        # if re.match("Pro", line):
-        #     pro.append(line[1])
-        # else:
-        #     non_admis.append(line)
+
+        ligne = [x for x in line[:-2].split(",")]
+
+        if "Poussin" in ligne[2]:
+            poussin.append(ligne[0])
+            poussin.append(ligne[1])
+        if "Cadet" in ligne[2]:
+            cadet.append(ligne[0])
+            cadet.append(ligne[1])
+        if "Junior" in ligne[2]:
+            junior.append(ligne[0])
+            junior.append(ligne[1])
+        if "Semi-Pro" in ligne[2]:
+            semipro.append(ligne[0])
+            semipro.append(ligne[1])
+        if "Pro" in ligne[2]:
+            pro.append(ligne[0])
+            pro.append(ligne[1])
+        else:
+            non_admis.append(ligne[0])
+            non_admis.append(ligne[0])
 
 print("Poussin:",(poussin),"\n","Cadet:",(cadet),"\n","Junior:",(junior),"\n","Semi-Pro:",(semipro),"\n","Pro:",(pro),"\n","Non Admis:",(non_admis),"\n",sep="")
 
